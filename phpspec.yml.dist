@@ -1,0 +1,5 @@
+suites:
+    alarm_scheduler:
+        namespace: Zlikavac32\AlarmScheduler
+        psr4_prefix: Zlikavac32\AlarmScheduler
+formatter.name: dot

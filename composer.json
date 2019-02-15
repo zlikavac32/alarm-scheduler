@@ -1,0 +1,40 @@
+{
+    "name": "zlikavac32/alarm-scheduler",
+    "description": "SGIALRM scheduler",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marijan Šuflaj",
+            "email": "msufflaj32@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Zlikavac32\\AlarmScheduler\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "src-test/PHPUnit/factories.php",
+            "src-test/PHPUnit/misc.php"
+        ],
+        "psr-4": {
+            "Zlikavac32\\AlarmScheduler\\Tests\\": "tests/",
+            "Zlikavac32\\AlarmScheduler\\TestHelper\\": "src-test/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.1",
+        "ext-pcntl": "*",
+        "php-ds/php-ds": "^1.2"
+    },
+    "suggest": {
+        "ext-ds": "Native php-ds implementation"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5",
+        "phpspec/phpspec": "^5.1"
+    }
+}
