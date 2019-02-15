@@ -39,6 +39,8 @@ class NaiveAlarmScheduler implements AlarmScheduler
 
         $this->oldSignalHandler = pcntl_signal_get_handler(SIGALRM);
 
+        pcntl_alarm(0);
+
         pcntl_signal(
             SIGALRM,
             function () {

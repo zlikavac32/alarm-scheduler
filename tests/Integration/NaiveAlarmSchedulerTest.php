@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Zlikavac32\AlarmScheduler\Tests\Integration;
 
 use LogicException;
+use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\TestCase;
 use Zlikavac32\AlarmScheduler\InterruptAlarmHandler;
@@ -338,5 +339,25 @@ class NaiveAlarmSchedulerTest extends TestCase
         $scheduler->finish();
 
         self::assertThat($handler, new WasAlarmHandlerCalledAfterNSeconds(3));
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_clear_any_pending_alarms_when_starting(): void
+    {
+        $scheduler = new NaiveAlarmScheduler();
+
+        pcntl_alarm(2);
+
+        $scheduler->start();
+
+        pcntl_signal(SIGALRM, function () {
+            $this->fail('Expected alarm to be cleared');
+        });
+
+        $scheduler->finish();
+
+        $this->assertTrue(true);
     }
 }
