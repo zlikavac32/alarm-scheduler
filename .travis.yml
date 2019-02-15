@@ -1,0 +1,38 @@
+language: php
+
+sudo: false
+
+dist: trusty
+
+cache:
+    directories:
+        - $HOME/.composer/cache
+
+install: composer update $COMPOSER_FLAGS
+
+matrix:
+    include:
+        -
+            php: 7.1
+        -
+            php: 7.1
+            env: COMPOSER_FLAGS='--prefer-lowest'
+        -
+            php: 7.2
+        -
+            php: 7.2
+            env: COMPOSER_FLAGS='--prefer-lowest'
+        -
+            php: 7.3
+        -
+            php: 7.3
+            env: COMPOSER_FLAGS='--prefer-lowest'
+        -
+            php: nightly
+            env: COMPOSER_FLAGS='--ignore-platform-reqs'
+    allow_failures:
+        - php: nightly
+
+script:
+    - vendor/bin/phpunit
+    - vendor/bin/phpspec run

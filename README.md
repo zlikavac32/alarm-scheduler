@@ -1,5 +1,7 @@
 # Alarm scheduler
 
+[![Build Status](https://travis-ci.org/zlikavac32/alarm-scheduler.svg?branch=master)](https://travis-ci.org/zlikavac32/alarm-scheduler)
+
 This library provides support for multiple `SIGALRM` handlers.
 
 ## Table of contents
