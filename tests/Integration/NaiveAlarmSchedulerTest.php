@@ -25,25 +25,25 @@ class NaiveAlarmSchedulerTest extends TestCase
 
     private static $previousSignalHandler;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         self::$previousAsyncSignals = pcntl_async_signals(true);
         self::$previousSignalHandler = pcntl_signal_get_handler(SIGALRM);
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         pcntl_async_signals(self::$previousAsyncSignals);
         pcntl_signal(SIGALRM, self::$previousSignalHandler);
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         pcntl_alarm(0);
         pcntl_signal(SIGALRM, SIG_DFL);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         pcntl_alarm(0);
         pcntl_signal(SIGALRM, SIG_DFL);
