@@ -13,6 +13,7 @@ This library provides support for multiple `SIGALRM` handlers.
     1. [AlarmScheduler](#alarmscheduler)
     1. [InterruptException](#interruptexception)
     1. [InterruptAlarmHandler](#interruptalarmhandler)
+    1. [CatchThrowableAlarmHandler](#catchthrowablealarmhandler)
 1. [Usage](#usage)
 1. [Rule of thumb](#rule-of-thumb)
 1. [Examples](#examples)
@@ -62,6 +63,12 @@ Users are not restricted to this exception for the hard interrupt as described i
 ## InterruptAlarmHandler
 
 Causes hard interrupt from alarm scheduler by throwing `InterruptException`
+
+## CatchThrowableAlarmHandler
+
+Alarm handler that wraps any other alarm handler and catches any throwable caught from it is implemented in `\Zlikavac32\AlarmScheduler\CatchThrowableAlarmHandler`. What is caught is passed into `\Zlikavac32\AlarmScheduler\ThrowableHandler`. If the throwable handler throws anything, it's silently ignored.
+
+Simple throwable handler that just ignores everything is provided through `\Zlikavac32\AlarmScheduler\IgnoreThrowableHandler`.
 
 ## Usage
 
