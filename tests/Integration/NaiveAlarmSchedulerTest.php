@@ -213,6 +213,38 @@ class NaiveAlarmSchedulerTest extends TestCase
     /**
      * @test
      */
+    public function it_should_deliver_multiple_scheduled_items_when_scheduling_next(): void
+    {
+        $scheduler = new NaiveAlarmScheduler();
+
+        $scheduler->start();
+
+        $firstHandler = new TimeTraceAlarmHandler();
+
+        $scheduler->schedule(1, $firstHandler);
+
+        $secondHandler = new TimeTraceAlarmHandler();
+
+        $scheduler->schedule(5, $secondHandler);
+
+        sleepWithoutInterrupt(2);
+
+        $thirdHandler = new TimeTraceAlarmHandler();
+
+        $scheduler->schedule(1, $thirdHandler);
+
+        sleepWithoutInterrupt(7);
+
+        $scheduler->finish();
+
+        self::assertThat($firstHandler, new WasAlarmHandlerCalledAfterNSeconds(1));
+        self::assertThat($secondHandler, new WasAlarmHandlerCalledAfterNSeconds(5));
+        self::assertThat($thirdHandler, new WasAlarmHandlerCalledAfterNSeconds(1));
+    }
+
+    /**
+     * @test
+     */
     public function it_should_deliver_scheduled_items_with_same_timeout(): void
     {
         $scheduler = new NaiveAlarmScheduler();

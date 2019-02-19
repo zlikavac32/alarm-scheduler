@@ -25,7 +25,7 @@ class WasAlarmHandlerCalledAfterNSeconds extends Constraint
     {
         assert($other instanceof TimeTraceAlarmHandler);
 
-        return $other->duration() > $this->period;
+        return abs($other->duration() - $this->period) < .5;
     }
 
     protected function failureDescription($other): string

@@ -180,6 +180,8 @@ class NaiveAlarmScheduler implements AlarmScheduler
                 (int)($scheduleItem->timeStamp() - microtime(true))
             )
         );
+
+        $this->nextScheduleAt = $scheduleItem->timeStamp();
     }
 
     private function runInSignalIsolation(callable $callable, ...$args): void
