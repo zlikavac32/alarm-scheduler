@@ -37,8 +37,6 @@ $scheduler->schedule(
 
 printNow();
 
-pcntl_alarm(2);
-
 while (true) {
     try {
         sleepWithoutInterrupt(5);
