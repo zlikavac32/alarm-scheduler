@@ -1,6 +1,7 @@
 {
     "name": "zlikavac32/alarm-scheduler",
     "description": "SIGALRM scheduler",
+    "keywords": ["scheduler", "alarm", "SIGALRM", "pcntl", "signal"],
     "type": "library",
     "license": "MIT",
     "authors": [
