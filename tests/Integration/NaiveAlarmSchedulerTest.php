@@ -398,4 +398,20 @@ class NaiveAlarmSchedulerTest extends TestCase
 
         $this->assertTrue(true);
     }
+
+    /**
+     * @test
+     */
+    public function it_should_be_started_again_after_finish(): void
+    {
+        $scheduler = new NaiveAlarmScheduler();
+
+        $scheduler->start();
+        $scheduler->finish();
+        $scheduler->start();
+        $scheduler->finish();
+
+        $this->assertTrue(true);
+
+    }
 }

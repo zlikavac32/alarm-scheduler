@@ -150,6 +150,7 @@ class NaiveAlarmScheduler implements AlarmScheduler
 
         pcntl_alarm(0);
         $this->scheduleItems->clear();
+        $this->started = false;
         $this->nextScheduleAt = 1e15;
 
         pcntl_signal(SIGALRM, $this->oldSignalHandler);
