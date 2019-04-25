@@ -1,6 +1,6 @@
 # Alarm scheduler
 
-## Unreleased
+## 0.2.1 (2019-04-25)
 
 * **[FIXED]** `NaiveAlarmScheduler` clears `started` flag on `finish()`
 
