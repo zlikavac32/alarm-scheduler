@@ -10,14 +10,10 @@ use Zlikavac32\AlarmScheduler\AlarmScheduler;
 
 class TimeTraceAlarmHandler implements AlarmHandler
 {
-    /**
-     * @var float
-     */
-    private $start;
-    /**
-     * @var float
-     */
-    private $end;
+
+    private float $start;
+
+    private ?float $end = null;
 
     public function __construct()
     {
@@ -35,7 +31,7 @@ class TimeTraceAlarmHandler implements AlarmHandler
 
     public function duration(): float
     {
-        if (null === $this->start) {
+        if (null === $this->end) {
             throw new LogicException('No end information. Did you forget to call handle()?');
         }
 

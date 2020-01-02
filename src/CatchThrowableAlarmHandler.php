@@ -12,14 +12,9 @@ use Throwable;
 class CatchThrowableAlarmHandler implements AlarmHandler
 {
 
-    /**
-     * @var AlarmHandler
-     */
-    private $alarmHandler;
-    /**
-     * @var ThrowableHandler
-     */
-    private $throwableHandler;
+    private AlarmHandler $alarmHandler;
+
+    private ThrowableHandler $throwableHandler;
 
     public function __construct(AlarmHandler $alarmHandler, ThrowableHandler $throwableHandler)
     {

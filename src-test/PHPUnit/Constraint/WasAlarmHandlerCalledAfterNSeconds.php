@@ -9,10 +9,8 @@ use Zlikavac32\AlarmScheduler\TestHelper\PHPUnit\TimeTraceAlarmHandler;
 
 class WasAlarmHandlerCalledAfterNSeconds extends Constraint
 {
-    /**
-     * @var int
-     */
-    private $period;
+
+    private int $period;
 
     public function __construct(int $period)
     {
