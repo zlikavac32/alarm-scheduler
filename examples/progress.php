@@ -23,12 +23,9 @@ $soFar = 0;
 $handler = new class($soFar) implements AlarmHandler
 {
 
-    /**
-     * @var int
-     */
-    private $soFar;
+    private int $soFar;
 
-    private $prevSoFar = 0;
+    private int $prevSoFar = 0;
 
     public function __construct(int &$soFar)
     {

@@ -13,13 +13,13 @@ use LogicException;
 class NaiveAlarmScheduler implements AlarmScheduler
 {
     /**
-     * @var Vector|ScheduleItem[]
+     * @var ScheduleItem[]
      */
-    private $scheduleItems;
+    private Vector $scheduleItems;
 
-    private $nextScheduleAt = 1e15;
+    private float $nextScheduleAt = 1e15;
 
-    private $started = false;
+    private bool $started = false;
 
     private $oldSignalHandler;
 

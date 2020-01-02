@@ -1,5 +1,9 @@
 # Alarm scheduler
 
+## Unreleased
+
+* **[CHANGED]** Typed properties are now used (PHP 7.4 is a minimum version to be used)
+
 ## 0.2.1 (2019-04-25)
 
 * **[FIXED]** `NaiveAlarmScheduler` clears `started` flag on `finish()`
